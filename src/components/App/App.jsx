@@ -14,6 +14,10 @@ function App() {
   );
   const [filter, setFilter] = useState('');
 
+  const handleContacts = (value) => {
+    setContacts([...contacts,value])
+  }
+
   const handleFilter = (value) => {
     setFilter(value);
   };
@@ -23,7 +27,7 @@ function App() {
   return (
     <div className={css.container}>
     <h1>Phonebook</h1>
-    <ContactForm />
+    <ContactForm onContactsChange={handleContacts} />
     <SearchBox onInputChange={handleFilter}/>
     <ContactList contactList={filteredContacts}/>
     </div>
