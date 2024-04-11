@@ -12,17 +12,19 @@ function App() {
     {id: 'id-4', name: 'Annie Copeland', number: '227-91-26'},
   ]
   );
-  const [filter, setFilter] = useState('');
+  const [filterContact, setFilterContact] = useState('');
+
+
 
   const handleContacts = (value) => {
-    setContacts([...contacts,value])
+    setContacts([...contacts, value]);
   }
 
   const handleFilter = (value) => {
-    setFilter(value);
+    setFilterContact(value);
   };
 
-  const filteredContacts = contacts.filter(contact => contact.name.toLowerCase().includes(filter.toLowerCase().trim()));
+  const filteredContacts = contacts.filter(contact => contact.name.toLowerCase().includes(filterContact.toLowerCase().trim()));
 
   return (
     <div className={css.container}>

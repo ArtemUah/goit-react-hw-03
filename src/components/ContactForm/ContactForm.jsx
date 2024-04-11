@@ -7,12 +7,12 @@ export default function ({onContactsChange}) {
     const nameId = useId();
     const numberId = useId();
     const handleSubmit = (values, actions) => {
+        values.id = nanoid();
         onContactsChange(values);
+        console.log(values);
         actions.resetForm();
-
     };
-
-    return (<Formik initialValues={{id:nanoid(), name: '', number: ''}} onSubmit={handleSubmit}>
+    return (<Formik initialValues={{id:'', name: '', number: ''}} onSubmit={handleSubmit}>
         <Form className={css.form}>
         <div className={css.container}><label className={css.label} htmlFor={nameId}>Name</label>
         <Field className={css.input} name='name' id={nameId}/></div>
