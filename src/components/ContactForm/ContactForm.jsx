@@ -6,7 +6,7 @@ import css from '../ContactForm/ContactForm.module.css';
 
 const FeedbackSchema = Yup.object().shape({
     name:Yup.string().trim().min(3, 'Too Short. Min 3 symbols.').max(50, 'Too Long. Max 50 symbols.').required('Required to enter'),
-    number:Yup.string().min(9, 'Must be 9 numbers').max(9, 'Must be 7 numbers').required('Required to enter')
+    number:Yup.string().min(9, 'Must be 7 numbers').max(9, 'Must be 7 numbers').matches(/^\d{3}-\d{2}-\d{2}$/, "Invalid phone number format").required('Required to enter')
 });
 
 
