@@ -14,7 +14,7 @@ const initialListOfContacts = [
 function App() {
   const [contacts, setContacts] = useState(()=>{
     const storage = localStorage.getItem('savedContacts');
-    if (storage !==null || JSON.parse(storage).length !== 0) {
+    if (storage !== null) {
       return JSON.parse(storage);
     };
     return initialListOfContacts;
